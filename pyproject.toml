@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "hrflow"
+version = "0.1.0"
+description = ""
+authors = ["amin <amine.benkhouya@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.104.1"
+uvicorn = "^0.23.2"
+sqlalchemy = "^2.0.22"
+sqlalchemy-utils = "^0.41.1"
+fastapi-router-controller = "^0.5.0"
+dependency-injector = "^4.41.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = "^1.7.4"
+pydantic-settings = "^2.0.3"
+python-multipart = "^0.0.6"
+psycopg2 = "^2.9.9"
+bcrypt = "^4.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+aiosqlite = "^0.19.0"
+httpx = "^0.25.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
