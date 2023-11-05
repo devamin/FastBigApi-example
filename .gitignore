@@ -122,3 +122,4 @@ venv
 /local/
 **.db
 celerybeat-schedule
+.install.stamp

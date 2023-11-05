@@ -23,6 +23,17 @@ class ApplicationController:
     @inject
     @authorized_with(Provide["auth_di_container.user_owner_privilege"])
     async def apply_for_ajobpost(self, user_id:int, post_id:int, application_body:Optional[ApplicationBodyReq], request:Request):
+        """Apply for a job post
+
+        Args:
+            user_id (int): applicant id
+            post_id (int): job post id
+            application_body (Optional[ApplicationBodyReq]): application_body.cover_letter
+
+        Raises:
+            HTTPException: 400 in case of applying two times or applicant is poster
+            HTTPException: 404 jobpost not found
+        """
         try:
             self.application_service.apply_for_ajobpost(applicant_id=user_id, post_id=post_id, application_body=application_body)
         except InvalidApplicationError:
@@ -34,6 +45,17 @@ class ApplicationController:
     @inject
     @authorized_with(Provide['jobpost_di_container.jobpost_owner_privilege'])
     async def get_applications(self, post_id:int, request:Request):
+        """Get all applicants of the a job post
+
+        Args:
+            post_id (int): jobpost id and the requester should be the owner of the jobpost
+
+        Raises:
+            HTTPException: 404 in case of jobpost not found
+
+        Returns:
+            List[ApplicationRes]: jobpost_id, applicant_id, and his cover_letter
+        """
         try:
             return self.application_service.get_applications(post_id=post_id)
         except JobPostNotFoundError:
