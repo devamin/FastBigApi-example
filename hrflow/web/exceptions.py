@@ -6,12 +6,12 @@ class HRFlowError(Exception):
 class ServiceError(HRFlowError):
     "Main hrflow service exception class"
 
-class ControllerError(Exception):
+class ControllerError(HRFlowError):
     "Main hrflow controller exception class"
 
-class RepositoryError(Exception):
+class RepositoryError(HRFlowError):
     "Main hrflow repository exception class"
 
 
 class DbRessourceNotFoundError(RepositoryError):
-    pass
+    "Main class to trigger no database result"
