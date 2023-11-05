@@ -1,6 +1,6 @@
 # FastBigAPI architecture example for HRFLOW(simple management of jobposts and applications)
 
-This is a template example for the FastBigAPI architecture, HRFlow contains to subapplication to manage authentication, jobposts, and application.  
+This is a template example for the FastBigAPI architecture, HRFlow contains 2 sub applications to manage authentication, jobposts, and application.  
 We use Poetry as package manager(https://python-poetry.org/docs/#installation)
 
 ## Architecture
