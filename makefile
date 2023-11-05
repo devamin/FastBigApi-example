@@ -22,7 +22,7 @@ $(INSTALL_STAMP): pyproject.toml poetry.lock
 
 .PHONY: test
 test: $(INSTALL_STAMP)
-	$(POETRY) run pytest
+	$(POETRY) run pytest -p no:warnings -v
 
 .PHONY: run
 run: $(INSTALL_STAMP)
