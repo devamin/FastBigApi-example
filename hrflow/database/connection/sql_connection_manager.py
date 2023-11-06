@@ -30,7 +30,6 @@ class SQLConnectionManager(TransactionBase):
         engine: Optional[Union[Engine, AsyncEngine]] = None,
     ):
         self.db_settings = db_settings
-        print(db_settings)
         self.create_schema: bool = create_schema
         self.engine = engine if engine else self.create_engine()
         self._session_cls = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
